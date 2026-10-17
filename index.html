@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reporte de Resultados · Meta Ads</title>
+<meta name="description" content="Resultados de la cuenta publicitaria del 1 al 17 de octubre de 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f6f6f3; --surface:#fcfcfb; --surface-2:#f0efea; --border:#e2e1dc;
+  --text:#0b0b0b; --text-2:#52514e; --muted:#7c7b76;
+  --accent:#2a78d6; --accent-soft:#e6f0fc; --accent-2:#1baf7a; --accent-2-soft:#e2f6ee;
+  --bar-track:#eceae4; --good:#0f8a5f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#121211; --surface:#1a1a19; --surface-2:#232321; --border:#2f2f2c;
+    --text:#f0efec; --text-2:#c3c2b7; --muted:#8f8e86;
+    --accent:#3987e5; --accent-soft:#17283d; --accent-2:#199e70; --accent-2-soft:#13291f;
+    --bar-track:#262624; --good:#3ccf95;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#121211; --surface:#1a1a19; --surface-2:#232321; --border:#2f2f2c;
+  --text:#f0efec; --text-2:#c3c2b7; --muted:#8f8e86;
+  --accent:#3987e5; --accent-soft:#17283d; --accent-2:#199e70; --accent-2-soft:#13291f;
+  --bar-track:#262624; --good:#3ccf95;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header.hero{padding:56px 0 32px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(32px,5.5vw,56px);line-height:1.05;letter-spacing:-.03em;margin:18px 0 12px;font-weight:800}
+h1 span{color:var(--accent)}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--text-2);max-width:680px;margin:0}
+.period{margin-top:20px;font-size:14px;color:var(--muted)}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.kpi .label{font-size:13px;color:var(--text-2);font-weight:500}
+.kpi .value{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.kpi.feature{background:var(--accent);border-color:var(--accent);color:#fff}
+.kpi.feature .label,.kpi.feature .sub{color:rgba(255,255,255,.85)}
+section{padding:28px 0}
+h2{font-size:clamp(22px,3vw,28px);letter-spacing:-.02em;margin:0 0 6px;font-weight:700}
+.section-sub{color:var(--text-2);margin:0 0 20px}
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hl{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+.hl .icon{flex:none;width:40px;height:40px;border-radius:12px;background:var(--accent-2-soft);color:var(--good);display:grid;place-items:center}
+.hl .big{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hl .desc{font-size:14px;color:var(--text-2)}
+.hl .who{font-size:12px;color:var(--muted);margin-top:4px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}
+.card h3{margin:0;font-size:16px;font-weight:600}
+.card .note{margin:2px 0 18px;font-size:13px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-row{position:relative;cursor:default}
+.bar-head{display:flex;justify-content:space-between;gap:12px;font-size:13px;margin-bottom:5px}
+.bar-name{color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bar-val{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;flex:none}
+.track{height:12px;background:var(--bar-track);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:var(--accent);border-radius:0 4px 4px 0;transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
+.bar-row:hover .fill{filter:brightness(1.1)}
+.bar-row:hover .bar-name{color:var(--text)}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.tip{position:fixed;pointer-events:none;background:var(--text);color:var(--bg);font-size:12px;padding:8px 10px;border-radius:8px;opacity:0;transition:opacity .12s;z-index:10;max-width:260px;line-height:1.4}
+.tip b{font-weight:600}
+.table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:820px}
+th,td{padding:14px 16px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12px;font-weight:600;color:var(--text-2);background:var(--surface-2);border-bottom:1px solid var(--border)}
+tbody td{border-bottom:1px solid var(--border)}
+tbody tr:hover td{background:var(--surface-2)}
+tfoot td{font-weight:700;background:var(--surface-2)}
+.best{display:inline-block;margin-left:6px;font-size:11px;font-weight:600;color:var(--good);background:var(--accent-2-soft);padding:1px 7px;border-radius:999px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .highlights,.charts{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.fill{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow"><span class="dot"></span>Reporte de campañas · Meta Ads</span>
+    <h1>598 conversaciones y <span>30 ventas</span> en 17 días</h1>
+    <p class="lead">Resultados de la cuenta publicitaria con 6 campañas activas para Master Vicky y MClass, entre el 1 y el 17 de octubre de 2026.</p>
+    <div class="period">Periodo del informe: 1 oct 2026 – 17 oct 2026 · Valores en pesos colombianos (COP)</div>
+
+    <div class="hero-grid" id="kpis"></div>
+  </header>
+
+  <section>
+    <h2>Lo más destacado</h2>
+    <p class="section-sub">Las cifras que más resaltan del periodo.</p>
+    <div class="highlights" id="highlights"></div>
+  </section>
+
+  <section>
+    <h2>Resultados por campaña</h2>
+    <p class="section-sub">Pasa el cursor sobre cada barra para ver el detalle.</p>
+    <div class="charts">
+      <div class="card"><h3>Conversaciones iniciadas</h3><p class="note">Conversaciones por mensaje que inició cada campaña</p><div class="bars" id="c-conv"></div></div>
+      <div class="card"><h3>Compras</h3><p class="note">Ventas atribuidas a cada campaña</p><div class="bars" id="c-buy"></div></div>
+      <div class="card"><h3>Costo por conversación</h3><p class="note">COP por conversación iniciada (menor es mejor)</p><div class="bars" id="c-cpc"></div></div>
+      <div class="card"><h3>CTR de enlace</h3><p class="note">Porcentaje de clics en el enlace sobre impresiones</p><div class="bars" id="c-ctr"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Detalle completo</h2>
+    <p class="section-sub">Todas las métricas del informe, campaña por campaña.</p>
+    <div class="table-wrap"><table id="tbl"></table></div>
+  </section>
+
+  <footer>Fuente: informe de Meta Ads Manager · 1 – 17 de octubre de 2026</footer>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const D = [
+  {n:"🩵 MASTER VICKY 🇺🇸 18 de septiembre", s:1087697, conv:137, cont:139, buy:9, cpm:70785.95600677, ctr:1.83522062},
+  {n:"🩵 MASTER VICKY 🇺🇸 25 de septiembre", s:943927,  conv:140, cont:142, buy:6, cpm:56239.69256435, ctr:1.76358437},
+  {n:"🇨🇴 MCLASS Segmentada [Ventas] · 17 sept", s:249831, conv:100, cont:104, buy:4, cpm:15241.03221083, ctr:1.42142509},
+  {n:"✨ MCLASS Segmentada [Ventas] · 17 sept", s:249148, conv:73,  cont:73,  buy:5, cpm:17732.95373665, ctr:1.11743772},
+  {n:"⭐️🇨🇴 MCLASS Abierta [Ventas] · 17 sept", s:229209, conv:76, cont:80, buy:3, cpm:13994.93222616, ctr:1.41653438},
+  {n:"🌻 MCLASS Abierta [Ventas] · 17 sept", s:220404, conv:72, cont:82, buy:3, cpm:10094.9938167, ctr:1.296203}
+];
+D.forEach(d=>{d.imp=d.s/d.cpm*1000; d.clk=d.imp*d.ctr/100; d.cpc=d.s/d.conv; d.cpa=d.s/d.buy;});
+const sum=k=>D.reduce((a,d)=>a+d[k],0);
+const T={s:sum('s'),conv:sum('conv'),cont:sum('cont'),buy:sum('buy'),imp:sum('imp'),clk:sum('clk')};
+T.cpc=T.s/T.conv; T.cpa=T.s/T.buy; T.cpm=T.s/T.imp*1000; T.ctr=T.clk/T.imp*100;
+
+const nf=(v,d=0)=>v.toLocaleString('es-CO',{maximumFractionDigits:d,minimumFractionDigits:d});
+const cop=v=>'$'+nf(Math.round(v));
+const pct=v=>nf(v,2)+'%';
+const by=(k,asc)=>D.slice().sort((a,b)=>asc?a[k]-b[k]:b[k]-a[k])[0];
+
+// KPIs
+const kpis=[
+  {l:'Conversaciones iniciadas',v:nf(T.conv),s:`${nf(T.cont)} contactos de mensajes`,f:true},
+  {l:'Compras',v:nf(T.buy),s:`1 venta cada ${nf(T.conv/T.buy,0)} conversaciones`},
+  {l:'Impresiones',v:nf(T.imp/1000,1)+' mil',s:`${nf(T.clk)} clics en el enlace`},
+  {l:'Costo por conversación',v:cop(T.cpc),s:`Inversión total ${cop(T.s)}`}
+];
+document.getElementById('kpis').innerHTML=kpis.map(k=>`<div class="kpi${k.f?' feature':''}"><div class="label">${k.l}</div><div class="value">${k.v}</div><div class="sub">${k.s}</div></div>`).join('');
+
+// Highlights
+const ic={
+  chat:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  bag:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',
+  up:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>'
+};
+const bc=by('cpc',true), ba=by('cpa',true), bctr=by('ctr'), bb=by('buy'), bconv=by('conv'), bcpm=by('cpm',true);
+const hls=[
+  {i:'chat',b:cop(bc.cpc),d:'Costo por conversación más bajo',w:bc.n},
+  {i:'bag',b:cop(ba.cpa),d:'Mejor costo por compra',w:ba.n},
+  {i:'bag',b:nf(bb.buy)+' compras',d:'Campaña con más ventas',w:bb.n},
+  {i:'chat',b:nf(bconv.conv)+' conversaciones',d:'Campaña con más conversaciones',w:bconv.n},
+  {i:'up',b:pct(bctr.ctr),d:'CTR de enlace más alto',w:bctr.n},
+  {i:'up',b:cop(bcpm.cpm),d:'CPM más eficiente',w:bcpm.n}
+];
+document.getElementById('highlights').innerHTML=hls.map(h=>`<div class="hl"><div class="icon">${ic[h.i]}</div><div><div class="big">${h.b}</div><div class="desc">${h.d}</div><div class="who">${h.w}</div></div></div>`).join('');
+
+// Bars
+const tip=document.getElementById('tip');
+function bars(id,k,fmt,asc){
+  const rows=D.slice().sort((a,b)=>asc?a[k]-b[k]:b[k]-a[k]);
+  const max=Math.max(...rows.map(r=>r[k]));
+  const el=document.getElementById(id);
+  el.innerHTML=rows.map((r,i)=>`<div class="bar-row" data-i="${D.indexOf(r)}"><div class="bar-head"><span class="bar-name">${r.n}</span><span class="bar-val">${fmt(r[k])}</span></div><div class="track"><div class="fill" style="width:${(r[k]/max*100).toFixed(2)}%;animation-delay:${i*60}ms"></div></div></div>`).join('');
+  el.querySelectorAll('.bar-row').forEach(row=>{
+    const d=D[row.dataset.i];
+    row.addEventListener('mousemove',e=>{
+      tip.innerHTML=`<b>${d.n}</b><br>Conversaciones: ${nf(d.conv)} · Compras: ${nf(d.buy)}<br>Costo/conv.: ${cop(d.cpc)} · CTR: ${pct(d.ctr)}`;
+      const x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8);
+      tip.style.left=x+'px'; tip.style.top=(e.clientY+14)+'px'; tip.style.opacity=1;
+    });
+    row.addEventListener('mouseleave',()=>tip.style.opacity=0);
+  });
+}
+bars('c-conv','conv',v=>nf(v));
+bars('c-buy','buy',v=>nf(v));
+bars('c-cpc','cpc',cop,true);
+bars('c-ctr','ctr',pct);
+
+// Table
+const best={cpc:bc,cpa:ba,ctr:bctr,buy:bb,conv:bconv,cpm:bcpm};
+const tag=(d,k)=>best[k]===d?'<span class="best">Mejor</span>':'';
+document.getElementById('tbl').innerHTML=`
+<thead><tr><th>Campaña</th><th>Inversión</th><th>Conversaciones</th><th>Costo/conv.</th><th>Contactos</th><th>Compras</th><th>Costo/compra</th><th>CPM</th><th>CTR enlace</th></tr></thead>
+<tbody>${D.map(d=>`<tr><td>${d.n}</td><td>${cop(d.s)}</td><td>${nf(d.conv)}${tag(d,'conv')}</td><td>${cop(d.cpc)}${tag(d,'cpc')}</td><td>${nf(d.cont)}</td><td>${nf(d.buy)}${tag(d,'buy')}</td><td>${cop(d.cpa)}${tag(d,'cpa')}</td><td>${cop(d.cpm)}${tag(d,'cpm')}</td><td>${pct(d.ctr)}${tag(d,'ctr')}</td></tr>`).join('')}</tbody>
+<tfoot><tr><td>Total cuenta</td><td>${cop(T.s)}</td><td>${nf(T.conv)}</td><td>${cop(T.cpc)}</td><td>${nf(T.cont)}</td><td>${nf(T.buy)}</td><td>${cop(T.cpa)}</td><td>${cop(T.cpm)}</td><td>${pct(T.ctr)}</td></tr></tfoot>`;
+</script>
+</body>
+</html>
